@@ -25,6 +25,7 @@ Merged Sorted Circular SLL .
 
 Difficulty : Medium
 */
+void merge(struct node **, struct node **);
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -34,5 +35,20 @@ struct node{
 };
 int merge_circularlists(struct node **head1, struct node **head2){
 	//Returns Length of merged Sorted circular SLL and also points *head1 to final SLL .
+	int len = 0;
+	if (*head1==NULL && *head2==NULL)
 	return -1;
+	else
+	{
+		merge(head1, head2);
+		while (head1 != NULL)
+		{
+			len++;
+		}
+			return len;
+	}
+}
+void merge(struct node **head1,struct node **head2)
+{
+	
 }

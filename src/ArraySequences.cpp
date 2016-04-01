@@ -26,12 +26,54 @@ Two A.P cannot start at same index .
 
 Difficulty : Medium
 */
-
+int ap_check(int,int,int,int *);
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
 int * find_sequences(int *arr, int len){
+	int i, j, res[5], temp, d, t = 0, k,count=1,m=0;
 	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	return NULL;
+	if (arr == NULL || len < 0)
+		return NULL;
+	else
+	{
+		for (i = 0; i < len; i++)
+		{
+			for (j = i; j < len; j++)
+			{
+				k = j;
+				temp = arr[i];
+				d = arr[j + 1] - arr[i];
+				while (t == 0)
+				{
+					t = ap_check(temp, d, k,arr);
+					k++;
+					count++;
+				}
+			}
+			if (count>= 3 && m=0)
+			{
+				res[0] = i;
+				res[1] = k - 1;
+				m = 1;
+				count = 1;
+			}
+			if (m == 1 && count >= 3)
+			{
+				res[2] = i;
+				res[3] = k - 1;
+				break;
+			}
+		}
+	}
 }
+	int ap_check(int temp, int d, int k,int arr)
+	{
+		int an=0;
+		an = temp + (k - 1)*d;
+		if (an == arr[k])
+			return 0;
+		else
+			return an;
+	}
